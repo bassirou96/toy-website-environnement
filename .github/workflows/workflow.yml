@@ -18,7 +18,7 @@ jobs:
     uses: bassirou96/toy-website-environment/.github/workflows/deploy.yml@main
     needs: lint
     with:
-      environmentType: TEST
+      environmentType: Test
       resourceGroupName: ToyWebsiteTest
     secrets:
       AZURE_CREDENTIALS: ${{ secrets.AZURE_CREDENTIALS_TEST }}
@@ -27,7 +27,7 @@ jobs:
     uses: bassirou96/toy-website-environnement/.github/workflows/deploy.yml@main
     needs: deploy-test
     with:
-      environmentType: PRODUCTION
+      environmentType: Production
       resourceGroupName: ToyWebsiteProduction
     secrets:
       AZURE_CREDENTIALS: ${{ secrets.AZURE_CREDENTIALS_PRODUCTION }}
