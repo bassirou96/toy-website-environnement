@@ -15,7 +15,7 @@ jobs:
 
   
   deploy-test:
-    uses: bassirou96/toy-website-environment/.github/workflows/deploy.yml@main
+    uses: bassirou96/toy-website-environnement/.github/workflows/deploy.yml@main
     needs: lint
     with:
       environmentType: Test
