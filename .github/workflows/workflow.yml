@@ -13,7 +13,6 @@ jobs:
   lint:
     uses: bassirou96/toy-website-environnement/.github/workflows/lint.yml@main
 
-  
   deploy-test:
     uses: bassirou96/toy-website-environnement/.github/workflows/deploy.yml@main
     needs: lint
