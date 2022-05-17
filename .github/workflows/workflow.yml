@@ -8,22 +8,23 @@ on:
   workflow_dispatch:
 
 jobs:
-  lint: 
-     uses: bassirou96/toy-website-environnement/.github/workflows/lint.yml@main
 
-#Deploy to the test environment.
-deploy-test:
-  uses: bassirou96/toy-website-environment/.github/workflows/deploy.yml@main
-  needs: lint
-  with:
-    environmentType: Test
-    resourceGroupName: ToyWebsiteTest
-  secrets:
-    AZURE_CREDENTIALS: ${{ secrets.AZURE_CREDENTIALS_TEST }}
-  
+  # Lint the Bicep file.
+  lint:
+    uses: YOUR_GITHUB_USERNAME/toy-website-environments/.github/workflows/lint.yml@main
 
-  #Deploy to the production environment.
-deploy-production:
+  # Deploy to the test environment.
+  deploy-test:
+    uses: bassirou96/toy-website-environment/.github/workflows/deploy.yml@main
+    needs: lint
+    with:
+      environmentType: Test
+      resourceGroupName: ToyWebsiteTest
+    secrets:
+      AZURE_CREDENTIALS: ${{ secrets.AZURE_CREDENTIALS_TEST }}
+
+  # Deploy to the production environment.
+  deploy-production:
     uses: bassirou96/toy-website-environment/.github/workflows/deploy.yml@main
     needs: deploy-test
     with:
