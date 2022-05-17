@@ -11,6 +11,9 @@ on:
       resourceGroupName:
         required: true
         type: string
+          reviewApiUrl:
+        required: true
+        type: string
     secrets:
       AZURE_CREDENTIALS:
         required: true
